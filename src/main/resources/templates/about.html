@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <!--适配移动端-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+
+
+<!--导航-->
+<nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment  m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu ">
+            <h2 class="ui teal header item">Blog</h2>
+            <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+            <a href="#" class="active m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+            <div class="m-item right item m-mobile-hide ">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search....">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui black icon menu toggle button m-top-right m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<!--中间内容-->
+<div class="m-container-large m-padded-tb-large">
+    <div class="ui container">
+        
+        <div class="ui stackable grid">
+            <!--左边-->
+            <div class="eleven wide column">
+                <div class="ui segment">
+                    <img src="https://picsum.photos/id/1/800/600?image=1005" alt="" class="ui rounded image">
+                </div>
+            </div>
+            <!--右边-->
+            <div class="five wide column">
+                <div class="ui top attached segment">
+                    <p class="m-text-thin" th:utext="#{about.me}">“澳门的成功实践告诉我们，只要对‘一国两制’坚信而笃行，‘一国两制’的生命力和优越性就会充分显现出来。”在庆祝澳门回归祖国20周年大会暨澳门特别行政区第五届政府就职典礼上，习近平主席发表重要讲话，充分肯定澳门回归20周年来所取得的发展成就，充分肯定“一国两制”的成功实践，为澳门发展擘画美好蓝图。</p>
+                </div>
+                <div class="ui attached segment ">
+                    <div class="ui basic orange label m-margin-tb-tiny">编程</div>
+                    <div class="ui basic orange label m-margin-tb-tiny">JAVA</div>
+                    <div class="ui basic orange label m-margin-tb-tiny">游戏</div>
+                    <div class="ui basic orange label m-margin-tb-tiny">吹牛</div>
+                    <div class="ui basic orange label m-margin-tb-tiny">协助</div>
+                    <div class="ui basic orange label m-margin-tb-tiny">写作</div>
+                </div>
+
+                <div class="ui attached segment ">
+                    <div class="ui basic orange label m-margin-tb-tiny">游戏</div>
+                    <div class="ui basic orange label m-margin-tb-tiny">JAVA</div>
+                    <div class="ui basic orange label m-margin-tb-tiny">COD</div>
+                    <div class="ui basic orange label m-margin-tb-tiny">DoTA</div>
+                    <div class="ui basic orange label m-margin-tb-tiny">CS</div>
+                    <div class="ui basic orange label m-margin-tb-tiny">王者荣耀</div>
+                </div>
+
+                <div class="ui bottom attached segment">
+                    <a href="#" th:href="@{/}" class="ui circular icon button"><i class="icon github"></i></a>
+                    <a href="#" class="ui qq circular icon button" data-content="1234556" th:data-content="#{index.QQ}" data-position="bottom center"><i class="icon qq"></i></a>
+                    <a href="#" class="ui wechat circular icon button"><i class="icon weixin"></i></a>
+                </div>
+                <div class="ui wechatQR flowing popup top left transition hidden">
+                    <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image" style="width: 120px">
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<!--底部-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-huge">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="four wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpg" class="ui rounded image" alt="" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-spaced m-opacity-mini">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-spaced m-opacity-mini">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-spaced m-opacity-mini">最新博客</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">
+                    浏览器根据响应头的内容类型处理接收结果，告诉浏览器响应体存放的都是文字类型，浏览器将所有内容按文字输出。</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2019 - 2020 Designed By Creek All Rights
+            Reserved</p>
+    </div>
+</footer>
+
+
+<!--/*/<th:block  th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    })
+    $('.qq').popup();
+    $('.wechat').popup({
+        popup: $('.wechatQR.popup'),
+        on: 'hover',
+        position: 'bottom center'
+    });
+</script>
+</body>
+</html>
