@@ -68,7 +68,9 @@ public class BlogController {
 
 
     @PostMapping("/blogs")
-    public String post(Blog blog, RedirectAttributes attributes, HttpSession session) {
+    public String post(Blog blog,
+                       RedirectAttributes attributes,
+                       HttpSession session) {
 
         blog.setUser((User) session.getAttribute("user"));
         blog.setType(typeService.getType(blog.getType().getId()));

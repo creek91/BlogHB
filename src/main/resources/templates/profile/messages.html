@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="profile/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <!--适配移动端-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../../static/css/animate.css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" href="../../static/css/animate.min.css" th:href="@{/css/animate.min.css}">
+    <link rel="stylesheet" href="../../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <link rel="stylesheet" href="../../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+
+<!--导航-->
+<nav th:replace="profile/_fragments :: menu(5)" class="ui inverted attached segment  m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu ">
+            <h2 class="ui teal header item">Blog</h2>
+            <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+            <a href="#" class="active m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+            <div class="m-item right item m-mobile-hide ">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search....">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui black icon menu toggle button m-top-right m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<!--中间内容-->
+<div class="m-container-large m-padded-tb-large">
+    <div class="ui container">
+        <div class="ui stackable  grid">
+            <!--左边-->
+            <div th:replace="profile/_fragments :: profile(3)" class="four wide column">
+                <div class="ui grid segment">
+                    <div class="sixteen wide column">
+
+                        <div class="ui  massive selection primary list ">
+                            <div class="content item">
+                                <a href="#" class="header item active" style="text-decoration: none">个人资料</a>
+                            </div>
+                            <div class="content item">
+                                <a class="header" style="text-decoration: none">我的博客</a>
+                            </div>
+                            <div class="content item">
+                                <a class="header" style="text-decoration: none">我的消息</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--右边-->
+            <div class="twelve wide column">
+                <div class="ui  grid m-padded-lr-responsive segment">
+                    <div class="three wide column">
+                        <img class="ui small circular image" src="../../static/images/avatar.png" th:src="@{/images/avatar.png}">
+                    </div>
+
+                    <div class="thirteen wide column">
+                        <div>id: <span th:text="${session.user.id}">44146570</span></div>
+                        <div>用户名： <span th:text="${session.user.username}">ck</span></div>
+                        <div>昵称： <span th:text="${session.user.nickname}">ck</span></div>
+                        <div>邮箱： <span th:text="${session.user.email}">123@qq.com</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--底部-->
+<footer th:replace="profile/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-huge">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="four wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpg" class="ui rounded image" alt="" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-spaced m-opacity-mini">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-spaced m-opacity-mini">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                    <a href="#" class="item">用户故事（User story）</a>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-spaced m-opacity-mini">最新博客</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">
+                    浏览器根据响应头的内容类型处理接收结果，告诉浏览器响应体存放的都是文字类型，浏览器将所有内容按文字输出。</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2019 - 2020 Designed By Creek All Rights
+            Reserved</p>
+    </div>
+</footer>
+
+
+<!--/*/<th:block  th:replace="profile/_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    })
+    $('.qq').popup();
+    $('.wechat').popup({
+        popup: $('.wechatQR.popup'),
+        on: 'hover',
+        position: 'bottom center'
+    });
+</script>
+
+</body>
+</html>

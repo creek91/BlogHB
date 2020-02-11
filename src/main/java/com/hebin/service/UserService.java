@@ -9,4 +9,6 @@ public interface UserService {
     User checkUser(String username);
 
     void saveUser(User user);
+
+    User getUser(Long id);
 }
