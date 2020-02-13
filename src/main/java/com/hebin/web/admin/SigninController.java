@@ -41,7 +41,7 @@ public class SigninController {
 //            System.out.println(username + "=======" + password);
             attributes.addFlashAttribute("message", "已存在相同用户名账户，请修改用户名");
             return "redirect:/admin/signup";
-        } else if (username == null || username=="") {
+        } else if (username == null || username.equals("")) {
 //            System.out.println(username + "=======" + password);
             attributes.addFlashAttribute("message", "请输入用户名");
             return "redirect:/admin/signup";

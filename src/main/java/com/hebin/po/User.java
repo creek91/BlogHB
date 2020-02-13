@@ -22,6 +22,11 @@ public class User {
     private String avatar;
     private Integer type;
 
+    private Integer status;
+    private Long accountId;
+    private String accountFrom;
+
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
@@ -29,9 +34,33 @@ public class User {
     private Date updateTime;
 
     @OneToMany(mappedBy = "user")
-    private List<Blog> blogs=new ArrayList<>();
+    private List<Blog> blogs = new ArrayList<>();
 
     public User() {
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Long getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
+    }
+
+    public String getAccountFrom() {
+        return accountFrom;
+    }
+
+    public void setAccountFrom(String accountFrom) {
+        this.accountFrom = accountFrom;
     }
 
     public List<Blog> getBlogs() {
@@ -124,6 +153,9 @@ public class User {
                 ", email='" + email + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", type=" + type +
+                ", status=" + status +
+                ", accountId=" + accountId +
+                ", accountFrom='" + accountFrom + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 '}';

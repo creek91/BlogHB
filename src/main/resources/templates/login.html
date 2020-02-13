@@ -11,20 +11,31 @@
 </head>
 <body>
 
-<!--导航-->
-<nav th:replace="_fragments :: menu(-1)" class="ui inverted attached segment  m-padded-tb-mini m-shadow-small">
+<nav   class="ui inverted attached segment  m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <div class="ui inverted secondary stackable menu ">
             <h2 class="ui teal header item">Blog</h2>
-            <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" ><i
+                    class="home icon"></i>首页</a>
+            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" ><i
+                    class="idea icon"></i>分类</a>
+            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide" ><i
+                    class="tags icon"></i>标签</a>
+            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide" ><i
+                    class="clone icon"></i>归档</a>
+            <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" ><i
+                    class="info icon"></i>关于我</a>
             <div class="m-item right item m-mobile-hide ">
-                <div class="ui icon input">
-                    <input type="text" placeholder="Search....">
-                    <i class="search link icon"></i>
+                <form name="search" method="post" action="#" th:action="@{/search}" target="_blank">
+                    <div class="ui icon input">
+                        <input type="text" name="query" placeholder="Search...." th:value="${query}">
+                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
+                <div class="m-padded-lr-login">
+                    <div class="ui icon secondary button">
+                        <a href="/admin/login" class="blue">管理员登录</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,6 +45,7 @@
     </a>
 </nav>
 
+
 <div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
     <div class="ui container">
         <div class="ui middle aligned center aligned grid">
@@ -41,7 +53,7 @@
                 <h2 class="ui teal image header">
                     <img src="../static/images/logo.png" class="image" th:src="@{/images/logo.png}">
                     <div class="content">
-                        博客登录管理
+                        博客登录
                     </div>
                 </h2>
 
@@ -50,7 +62,7 @@
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input type="text" name="username" placeholder="用户名">
+                                <input type="text" name="name" placeholder="用户名">
                             </div>
                         </div>
                         <div class="field">
@@ -66,11 +78,13 @@
                     <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">
                         用户名和密码错误
                     </div>
-
                 </form>
 
                 <div class="ui message">
-                    还没有账户? <a href="#" th:href="@{/admin/signup}">注册一个账户</a>
+                    <a href="https://github.com/login/oauth/authorize?client_id=2298d1ee49e87436a82e&redirect_uri=http://localhost:8080/callback&scope=user&state=1"><span class="left">使用GitHub账户登录： </span><i class="github icon"></i></a>
+                </div>
+                <div class="ui message">
+                    还没有账户? <a href="#" th:href="@{/signup}">注册一个账户</a>
                 </div>
             </div>
         </div>
@@ -84,8 +98,8 @@
 <script>
     $('.ui.form').form({
         fields: {
-            username: {
-                identifier: "username",
+            name: {
+                identifier: "name",
                 rules: [{
                     type: 'empty',
                     prompt: '请输入用户名'

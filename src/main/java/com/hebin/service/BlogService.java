@@ -20,7 +20,11 @@ public interface BlogService {
 
     Page<Blog> listBlog(Long tagId,Pageable pageable);
 
-    Page<Blog> listBlog(String  query,Pageable pageable);
+    Page<Blog> listBlogByUser(Long userId, Pageable pageable);
+
+    Page<Blog> listBlogByUser(Long userId, Pageable pageable,BlogQuery blog);
+
+    Page<Blog> listBlog(String  query, Pageable pageable);
 
     Blog saveBlog(Blog blog);
 

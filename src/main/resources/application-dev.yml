@@ -15,3 +15,9 @@ logging:
     com.hebin: debug
   file: log/blog-dev.log
 
+github:
+  client:
+    id: 2298d1ee49e87436a82e
+    secret: 062cf22ddd26e20040f43587cf58553dc766c07f
+  redirect:
+    uri: http://localhost:8080/callback

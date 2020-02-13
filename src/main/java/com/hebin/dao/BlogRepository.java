@@ -1,7 +1,6 @@
 package com.hebin.dao;
 
 import com.hebin.po.Blog;
-import com.hebin.po.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -36,5 +35,4 @@ public interface BlogRepository extends JpaRepository<Blog, Long>,JpaSpecificati
 
     @Query("select b from Blog b where b.type.id like ?1")
     List<Blog> findByTypeId(Long id);
-
 }

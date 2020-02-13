@@ -29,17 +29,6 @@ public class PersonalController {
         return "profile/index";
     }
 
-    @GetMapping("/blogs")
-    public String userBlog(RedirectAttributes attributes,
-                           HttpSession session) {
-        User user = (User) session.getAttribute("user");
-        if (user == null) {
-            attributes.addFlashAttribute("message", "请先登录！");
-            return "redirect:/login";
-        }
-        return "profile/blogs";
-    }
-
     @GetMapping("/messages")
     public String userMessage(RedirectAttributes attributes,
                               HttpSession session) {

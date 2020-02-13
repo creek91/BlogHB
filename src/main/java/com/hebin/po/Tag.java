@@ -12,6 +12,7 @@ public class Tag {
     @Id
     @GeneratedValue
     private Long id;
+
     @NotBlank(message = "标签名称不能为空！")
     private String name;
 
