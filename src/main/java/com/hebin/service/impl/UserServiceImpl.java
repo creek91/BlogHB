@@ -54,8 +54,6 @@ public class UserServiceImpl implements UserService {
             }
             user.setAvatar(user1.getAvatar());
             user.setUsername(user1.getUsername());
-            user.setAccountFrom("GitHub");
-            user.setAccountId(user1.getId());
 
             user.setUpdateTime(new Date());
             userRepository.save(user);

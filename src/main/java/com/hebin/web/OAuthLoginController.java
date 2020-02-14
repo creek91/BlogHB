@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
-import java.util.Date;
 
 @Controller
 public class OAuthLoginController {
@@ -61,7 +60,7 @@ public class OAuthLoginController {
             userService.createOrUpdateUser(user);
 
             //登录成功，写cookie和session
-            session.setAttribute("user",user);
+            session.setAttribute("user",userService.checkUser(user.getUsername()));
             return "redirect:/";
         }else {
             //登陆失败，重新登陆
